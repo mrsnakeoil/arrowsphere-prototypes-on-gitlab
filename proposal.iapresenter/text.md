@@ -130,3 +130,30 @@ These are genuine open questions. Your input shapes the template.
 	5. Roll out to the team
 
 We can have the template ready to pilot within a sprint.
+
+---
+## Proof of Concept
+	We've already started
+
+We spun up a GitHub Enterprise Cloud trial with Enterprise Managed Users to validate the approach. The enterprise is called **Bad Face Industries** — a throwaway name for a real test.
+
+- **Plan:** Enterprise Cloud, 30-day free trial
+- **Identity Provider:** Microsoft Entra ID (our SSO)
+- **Data hosting:** GitHub.com (US, no data residency)
+- **Username shortcode:** badface (members get handles like user_badface)
+- **Admin:** badface_admin
+
+This confirms Enterprise Managed Users works with our identity provider and gives us private Pages to test with.
+
+---
+### It's Live
+	Enterprise created, admin invite received
+
+Within minutes of submitting the form, the admin account received a setup email. The enterprise is live at github.com/enterprises/bad-face and ready for configuration.
+
+**What this proves:**
+- Enterprise Cloud signup is straightforward
+- Entra ID integration is a supported first-class option
+- Private Pages will be available once we configure an org under this enterprise
+
+Next: connect Entra ID, create an org, deploy a test page, and confirm private access works end-to-end.
