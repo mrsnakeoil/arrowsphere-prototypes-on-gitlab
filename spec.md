@@ -80,8 +80,11 @@ Per project requirements:
 4. Deploy to GitHub Pages (only on merge to `main`)
 
 ### Gitleaks
-- Uses the `gitleaks/gitleaks-action` GitHub Action
-- Fails the build if secrets are detected in the codebase
+- Installed directly (pinned to v8.24.3) rather than using the GitHub Action wrapper for more control
+- On **push events**: attempts a commit-range scan (`before..after`) for speed
+- **Fallback**: if the commit range is invalid (first push to a new repo, root commit with no parent), falls back to a full-repo scan (`gitleaks detect --source .`)
+- On **pull requests**: always runs a full-repo scan
+- Fails the build (exit code 2) if secrets are detected
 
 ### GitHub Pages
 - Source: GitHub Actions deployment
