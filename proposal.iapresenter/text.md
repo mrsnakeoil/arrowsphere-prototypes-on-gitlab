@@ -135,7 +135,10 @@ We can have the template ready to pilot within a sprint.
 ## Proof of Concept
 	We've already started
 
-	![Enterprise setup form](assets/1.png)
+/assets/1.png
+Size:contain
+
+---
 
 	We spun up a GitHub Enterprise Cloud trial with Enterprise Managed Users to validate the approach. The enterprise is called **Bad Face Industries** — a throwaway name for a real test.
 
@@ -151,7 +154,7 @@ We can have the template ready to pilot within a sprint.
 ### It's Live
 	Enterprise created, admin invite received
 
-	![Admin invite email](assets/2.png)
+	![Admin invite email](/assets/2.png)
 
 	Within minutes of submitting the form, the admin account received a setup email. The enterprise is live at github.com/enterprises/bad-face and ready for configuration.
 
