@@ -7,6 +7,11 @@ We've been building increasingly useful prototypes with AI. Right now, sharing t
 ---
 ## The Problem
 	Our prototypes are trapped on localhost
+	But prototypes need to be one-click accessible so that:
+	- can be used without dev env to use/maintain
+	- can be shared to less-technical users
+	
+ 
 
 Today's workflow: create a repo, build with Copilot, review a PR, clone, run locally. Every person who wants to see the app has to set up a dev environment. This limits who can use what we build and slows down feedback.
 
@@ -164,3 +169,67 @@ Size:contain
 	- Private Pages will be available once we configure an org under this enterprise
 
 	Next: connect Entra ID, create an org, deploy a test page, and confirm private access works end-to-end.
+
+---
+## The Workflow
+	From template to live app
+
+	```
+	DEVELOPERS (x5)                                              USERS (x20)
+	─────────────                                                ──────────────
+	
+	┌─────────┐       ┌──────────────┐       ┌──────────────┐   ┌──────────┐
+	│Developer│──────▶│ Template Repo │──────▶│   New Repo   │   │  Browser │
+	└─────────┘create │  (Vite+React) │       │ proto-x-y    │   └──────────┘
+	           from   └──────────────┘       └──────┬───────┘        ▲
+	           template                             │                 │
+	                                                ▼                 │
+	                                     ┌──────────────────┐        │
+	                                     │  AI Agent builds  │        │
+	                                     │  app from spec.md │        │
+	                                     └────────┬─────────┘        │
+	                                              │                  │
+	                                              ▼                  │
+	                                     ┌──────────────────┐        │
+	                                     │   Pull Request    │        │
+	                                     │  (peer review)    │        │
+	                                     └────────┬─────────┘        │
+	                                              │                  │
+	                                              ▼                  │
+	                                     ┌──────────────────┐        │
+	                                     │  Merge to main    │        │
+	                                     └────────┬─────────┘        │
+	                                              │                  │
+	                                              ▼                  │
+	                                     ┌──────────────────┐        │
+	                                     │  GitHub Actions   │        │
+	                                     │ ┌──────────────┐ │        │
+	                                     │ │ gitleaks scan │ │        │
+	                                     │ ├──────────────┤ │        │
+	                                     │ │   build app   │ │        │
+	                                     │ ├──────────────┤ │        │
+	                                     │ │deploy to Pages│ │        │
+	                                     │ └──────────────┘ │        │
+	                                     └────────┬─────────┘        │
+	                                              │                  │
+	                                              ▼                  │
+	                                     ┌──────────────────┐        │
+	                                     │  GitHub Pages     │────────┘
+	                                     │  (private URL)    │ 20 users access
+	                                     └──────────────────┘ via browser
+	```
+
+---
+## Pricing
+	5 developers + 20 users, private AI web app workflow
+
+	Assumption: AI tools already paid for.
+
+	| Platform                | Tier       | Billable Seats | Price/seat/month | Total/month |
+	|-------------------------|------------|----------------|------------------|-------------|
+	| GitHub Enterprise Cloud | Enterprise | 25             | $21              | $525        |
+	| GitLab.com SaaS         | Ultimate   | 5              | $99              | $495        |
+
+	- GitLab best value (lowest billable seats).
+	- Both support repo templates, merge workflows, private Pages.
+	- Prices are list, billed annually; contact vendors for quotes.
